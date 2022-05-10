@@ -21,9 +21,9 @@
 title: William Thomas
 email: me [at] williamthom.as 
 description: >- # this means to ignore newlines until "baseurl:"
-  Personal site for William Thomas
-domain: williamthom-as.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
-url: https://williamthom-as.github.io  # the base hostname and protocol for your site, e.g. http://example.com
+  2022 - William Thomas
+domain: williamthom.as       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
+url: https://williamthom.as  # the base hostname and protocol for your site, e.g. http://example.com
 github_username:  williamthom-as
 
 # Build settings
