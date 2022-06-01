@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+// Define defaults for each variable.
+
+$base-font-family:  "Inter", sans-serif !default;
+$header-font-family: "JetBrains Mono", monospace;
+
+$base-font-size:    1rem !default;
+$small-font-size:   0.9rem !default;
+
+$base-font-weight:  300 !default;
+$bold-font-weight:  $base-font-weight * 2 !default;
+$light-font-weight: 300 !default;
+
+$base-line-height:  1.6 !default;
+
+$spacing-unit:      30px !default;
+
+$text-color:        #3c484e !default;
+$background-color:  #fdfdfd !default;
+$brand-color:       #2a9d8f !default;
+$link-color:        #264653 !default;
+$header-color:      #e76f51 !default;
+
+
+$grey-color:        #828282 !default;
+$grey-color-light:  lighten($grey-color, 40%) !default;
+$grey-color-dark:   darken($grey-color, 25%) !default;
+
+
+$table-text-align:  left !default;
+
+$code-bg-color:     #f6f8fa;
+$code-font-family:  "JetBrains Mono", monospace !default;
+$code-font-size:    0.9em;
+$code-font-weight:  300;
+$code-bold-weight:  $code-font-weight * 2;
+$code-line-height:  1.4;
+
+// Width of the content area
+$content-width:     50em !default;
+$on-palm:           36px !default;
+$on-laptop:         45px !default;
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//   .wrapper {
+//     padding-right: $spacing-unit / 2;
+//     padding-left: $spacing-unit / 2;
+//   }
+// }
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin relative-font-size($ratio) {
+  font-size: $base-font-size * $ratio;
+}
+
+// Import partials.
+@import
+  "minima/base",
+  "minima/layout",
+  "minima/syntax-highlighting"
+;
+
+main p {
+  text-align: justify;
+}
+
+main.book-style p {
+  text-align: justify;
+  text-indent: 1.5em;
+}
+
+main.book-style p:first-of-type {
+  text-indent: 0em;
+}
+
+main h1, main h2, main h3, main h4 {
+  font-family: $header-font-family;
+  font-weight: $light-font-weight;
+  margin: 2rem 0 1rem 0;
+}
+
+h3 > .post-link {
+  margin: 0px;
+  font-weight: 400;
+}
+
+.post-title {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  color: $link-color;
+}
+
+.post-header {
+  text-align: center;
+}
+
+.post-content, .home {
+  h2, h3 {
+    margin-top: 2rem;
+    color: $header-color;
+  }
+
+  a, a:visited {
+    color: $brand-color;
+  }
+}
+
+strong {
+  font-weight: $bold-font-weight;
+}
+
+figure {
+  font-size: $small-font-size;
+}
+
+a, a:visited {
+  color: $link-color;
+}
+
+.meta {
+  color: $grey-color-light;
+  font-size: $small-font-size;
+}
+
+.footnote::before {
+    content: "[";
+}
+
+.footnote::after {
+    content: "]";
+}
+
+.footnotes {
+    font-size: $small-font-size;
+}
+
+pre, code {
+  background-color: $code-bg-color;
+  font-family: $code-font-family;
+  font-size: $code-font-size;
+  font-weight: $code-font-weight;
+  line-height: $code-line-height;
+}
+
+.highlighter-rouge .highlight {
+    background-color: $code-bg-color;
+}
+
+.highlight .o, .highlight .k {
+  font-weight: $code-bold-weight !important;
+}
+
+.site-title, .site-title:visited {
+  font-family: $header-font-family;
+  color: $brand-color;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.site-nav .page-link {
+  transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  font-weight: 400;
+
+  &:hover {
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid $brand-color;
+  }
+}
+
+.site-footer {
+  border-top: 1px solid #e6e6e6;
+  background-color: #f2f2f2;
+}
+
+.post-list-heading {
+  font-size: 1.5rem;
+  color: $text-color !important;
+}
+
+.post-list h3 {
+  margin-top: 0;
+}
