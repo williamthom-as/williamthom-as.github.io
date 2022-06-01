@@ -4,10 +4,9 @@ author: william
 date:   2022-05-09 10:00:00 +1000
 categories: [finops, tagging]
 tags: [finops]
-layout: category
 ---
 
-*This is part one of a the series on cloud fin ops*
+*This is part one of the series on cloud fin ops*
 
 It is no secret that achieving any form of productive cloud financial analysis requires a robust tagging structure. More than just useful for cost allocation, a successful tag hierarchy can be used to operationalise cost-saving practices.
 
@@ -50,4 +49,4 @@ A final thing to consider, tags are more than just the key part. Their value (i.
 
 ## Summary
 
-Above are just a few simple examples of how to start thinking about your cloud tagging ventures. Like all things, the more effort you put into it, the better the opportunities for reporting and cost savings you will have later.
+Above are just a few simple examples of how to start thinking about your cloud tagging ventures. Like all things, the more effort you put into it, the better the opportunities for reporting and cost savings you will have later.  In the future, we will discuss things like compliance.
