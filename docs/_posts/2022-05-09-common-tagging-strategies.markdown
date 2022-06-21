@@ -1,18 +1,18 @@
 ---
-title:  "Common tagging strategies to achieve FinOps nirvana"
+title:  "Common tagging strategies to achieve cloud finance nirvana"
 author: william
 date:   2022-05-09 10:00:00 +1000
 categories: [finops, tagging]
 tags: [finops]
 ---
 
-*This is part one of the series on cloud fin ops*
+*This is part one of the series on cloud finance optimisation*
 
 It is no secret that achieving any form of productive cloud financial analysis requires a robust tagging structure. More than just useful for cost allocation, a successful tag hierarchy can be used to operationalise cost-saving practices.
 
 Broadly speaking, as defined by the [GSA](https://www.cio.gov/assets/resources/Cloud%20Tagging%20Strategy%20Guide_v3.1.pdf), cloud tagging falls under four categories: technical, business, automation and security.
 
-For the purposes of achieving your FinOps capabilities, let us walk through how to structure your first cloud tag hierarchy (focusing specifically on business/technical and automation categories).
+For the purposes of achieving your cloud finance optimisation, let us walk through how to structure your first cloud tag hierarchy (focusing specifically on business/technical and automation categories).
 
 ### Business
 
@@ -27,7 +27,7 @@ Business tags fall into the aforementioned **allocation** group of tags, alongsi
 
 Technical tags are slightly *less* interesting on the finance side (but they still fall under the **allocation** group of tags). They allow for clear identification and description of what something is, and how it works. When deciding what tags to use for this category, approach it from the lens of understanding what the resource is used for. That said, common options we should consider are:
 
-  - **Application/ApplicationVersion/Role/Purpose**: List off how this resource plays in a bigger ecosystem of resources. Examples: application => MyApp, version => v2, purpose => DatabaseServer.
+  - **Application/Role/Purpose**: List off how this resource plays in a bigger ecosystem of resources. Examples: application => MyApp, version => v2, purpose => DatabaseServer.
   - **Environment**: Allows for distinction between production, test, development, QA... and the list goes on.
 
 ### Automation
