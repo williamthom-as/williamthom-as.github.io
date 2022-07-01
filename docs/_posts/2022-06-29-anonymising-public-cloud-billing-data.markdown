@@ -1,7 +1,7 @@
 ---
-title:  "A guide to anonymising public cloud billing data"
+title:  A guide to anonymising public cloud billing data
 author: william
-date:   2022-05-09 23:05:01 +1000
+date:   2022-06-29 23:05:01 +1000
 categories: [finops, aws]
 tags: [finops, aws]
 ---
@@ -80,7 +80,7 @@ Below is a simple outline on how to generate a template file for processing, dec
 
 #### identity/LineItemId
 
-The default value for this column is a random string of 52 characters [example: fbfb7zylwi84u7y08acj6ym8i3br79hiagfhg5ergovm3zva9wsb], which makes it pretty easy to replace.
+The default value for this column is a random string of 52 characters [example: fbfb7zyl...va9wsb], which makes it pretty easy to replace.
 
 ```json
     {
