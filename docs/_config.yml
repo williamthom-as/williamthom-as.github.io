@@ -56,3 +56,5 @@ show_downloads: false
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+google_analytics: G-JM1Y8M7PKJ
