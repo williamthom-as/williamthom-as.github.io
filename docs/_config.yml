@@ -31,6 +31,7 @@ github_username:  williamthom-as
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
 
 breadcrumbs: true
 search: true
