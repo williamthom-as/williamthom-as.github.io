@@ -234,16 +234,13 @@ end
 
 Remembering what we started with...
 
-**Before:**
-
 ![Screenshot from 2023-04-07 23-13-21](https://user-images.githubusercontent.com/8381190/230614909-9f014ec5-a581-4452-8651-9ed78067f5c2.png)
 
 ... and after all that, we have:
 
-**After:**
-
 **CSV**
-![result](https://user-images.githubusercontent.com/8381190/230626158-aadd95af-89b4-46ae-aa44-24d8ac5b3daa.png)
+![Screenshot from 2023-04-08 23-39-47](https://user-images.githubusercontent.com/8381190/230724289-8e9e1e94-4a3b-43be-a725-70036b921574.png)
+
 
 **Terminal**
 ![Screenshot from 2023-04-08 00-36-25](https://user-images.githubusercontent.com/8381190/230626876-cadd7883-2421-43b8-950c-8e0a74b9a8da.png)
