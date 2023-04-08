@@ -135,27 +135,72 @@ end
 
 #### Transforms
 
-Transform blocks provide the ability to change the value given. In the example case, a few transforms are needed.
+Transform blocks provide the ability to change the column value given. In the example case, a few transforms are needed.  They each require a bit of explaining, so have a look at the comments for each transform.
+
+> **Note:** translations are stacked, and are called in order. The value of one translation is *passed* to the next. You can do one, or multiple translations, consisting of; full replacements, regex partial replacements, conditional replacements, appended or prepended. 
+Finally, we can even do a no match translation - something to run if nothing else changed the value.
+
+There are a bunch of generation strategies, random value generators, static values, uppercase, downcase, case switch generators, ERB templating, fully customisable proc generators [see below] and the list goes on.
+
+Translations have an (opt-out) history, for example; if you generate an new account number in Column A, but the account number is referenced in Column B, it will keep the same translation value between the two. This is essential to ensure data integrity.
+
+Observe the account number being maintained in RefereceNo column below:
+
+| AccountNo | ReferenceNo  |
+|-----------|--------------|
+| 123456    | Ref-123456-1 |
+| 123456    | Ref-123456-2 |
+
+will translate to
+
+| AccountNo | ReferenceNo  |
+|-----------|--------------|
+| 654321    | Ref-654321-1 |
+| 654321    | Ref-654321-2 |
+
+
 
 ```ruby
 transform do
+  # A rather simple one, if the column "item" matches our typo - oarnge,
+  # replace the whole amount with the static text 'orange.
   candidate named_range: "items", column: "item" do
     with_translation { replace("match", match: "oarnge").with("static", value: "orange") }
   end
 
+  # Here are are doing a full replacement of whatever is in the SKU column 
+  # with a random 8 digits. Important to note here: this has a history, if
+  # 1234 changes to 5678, every instance of 1234 from here on will be changed to 1234.
   candidate named_range: "items", column: "sku" do
     with_translation { replace("full").with("number", length: 8) }
   end
 
+  # This transform takes a previously empty field and creates a new code. 
+  # It has two steps - 
+  # 1. Create a full replacement with static text FRUIT-
+  # 2. Append a random character of 3 random characters, either uppercase or numbers.
+  #    The force replace flag says regardless of what the value may have been, replace it.
   candidate named_range: "items", column: "code" do
     with_translation { replace("full", force_replace: true).with("static", value: "FRUIT-") }
     with_translation { replace("append", force_replace: true).with("character", length: 3, types: %w[uppercase number]) }
   end
 
+  # A simple transform, if you remember back to the extract step, we
+  # pulled out a single cell "invoice_date". Here we are adding it to
+  # each row.
   candidate named_range: "items", column: "purchase_date" do
     with_translation { replace("full").with("variable", name: "invoice_date") }
   end
 
+  # This is one of the more advanced transforms we do. We want to do a custom 
+  # calculation where we see the percentage of spend per line item against the
+  # total cost.
+  # 1. Since the invoice total is a variable, prefill the row with that value.
+  # 2. We provide a proc for the calculation A/B * 100, rounded. The proc is 
+  #    called with two variables, the source value (which we just set to be 
+  #    the invoice total), and the row context.
+  #    We grab the row "total cost", and use the source value to perform the 
+  #    calculation.
   candidate named_range: "items", column: "percentage_of_total" do
     with_translation { replace("full", force_replace: true).with("variable", name: "invoice_total") }
     with_translation { replace("full", force_replace: true).with("proc", execute: proc { |source, ctx|
@@ -163,6 +208,8 @@ transform do
     )}
   end
   
+  # Finally, the vendor needs to be obfuscated because it for some reason is secret.
+  # We generate two translations, 
   candidate named_range: "items", column: "vendor" do
     with_translation { replace("full").with("character", length: 3, types: %w[uppercase]) }
     with_translation { replace("append").with("character", length: 3, types: %w[number]) }
@@ -172,7 +219,9 @@ end
 
 #### Exports
 
-Exports allow you to output the results of the transformation.
+Exports allow you to output the results of the transformation. There are three main options currently, outputting to the terminal, outputting to CSVs (one or many), or yielding the row back to your program to do whatever you want.
+
+Terminal output is really nice just to see the first few rows as you develop your script..
 
 ```ruby
 export do
@@ -183,10 +232,18 @@ end
 
 #### Result
 
-After all that, we are presented with a new CSV!
+Remembering what we started with...
 
-CSV:
+**Before:**
+
+![Screenshot from 2023-04-07 23-13-21](https://user-images.githubusercontent.com/8381190/230614909-9f014ec5-a581-4452-8651-9ed78067f5c2.png)
+
+... and after all that, we have:
+
+**After:**
+
+**CSV**
 ![result](https://user-images.githubusercontent.com/8381190/230626158-aadd95af-89b4-46ae-aa44-24d8ac5b3daa.png)
 
-Terminal:
+**Terminal**
 ![Screenshot from 2023-04-08 00-36-25](https://user-images.githubusercontent.com/8381190/230626876-cadd7883-2421-43b8-950c-8e0a74b9a8da.png)
