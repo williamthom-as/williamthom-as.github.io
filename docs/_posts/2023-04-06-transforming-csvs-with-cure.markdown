@@ -1,5 +1,5 @@
 ---
-title:  Transforming CSV files with Cure
+title:  Transforming CSV files with Cure by example
 author: william
 date:   2023-04-06 22:05:01 +1000
 categories: [csv, ruby]
