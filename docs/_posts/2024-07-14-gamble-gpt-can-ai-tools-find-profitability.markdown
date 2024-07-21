@@ -499,6 +499,8 @@ I will provide the links to each of the dashboards, but if you are curious they 
 
 As mentioned, we are up to week 20 of the NRL season, so I've loaded the weeks games and run the model on each. The predictions are as follows:
 
+<div class="table-container" markdown="block">
+
 | Home Team         | Away Team             | Home Weight   | Away Weight   | GPT Predicted   | Seasoned Tipper | Wife |
 |---|---|---|---|---|---|---|
 | Canberra Raiders  | New Zealand Warriors  | 1.6549        | 1.5951        | **Canberra Raiders**    | Canberra Raiders | New Zealand Warriors |
@@ -508,6 +510,8 @@ As mentioned, we are up to week 20 of the NRL season, so I've loaded the weeks g
 | Penrith Panthers  | Dolphins              | 2.6874	      | 0.5626        | **Penrith Panthers**  | Penrith Panthers | Penrith Panthers |
 | Manly Sea Eagles  | Gold Coast Titans     | 11.6075	      | -8.3575       | **Manly Sea Eagles**  | Manly Sea Eagles | Gold Coast Titans |
 | North QLD Cowboys | Canterbury Bulldogs   | 0.9126	      | 2.3374        | **Canterbury Bulldogs** | Canterbury Bulldogs | North QLD Cowboys |  
+
+</div>
 
 **Week 20 Dashboards**
 
@@ -523,6 +527,8 @@ As mentioned, we are up to week 20 of the NRL season, so I've loaded the weeks g
 
 Note: **Bold** entries denote correct predictions.
 
+<div class="table-container" markdown="block">
+
 | Home Team         | Away Team             | Winner | GPT Predicted   | Seasoned Tipper | Wife |
 |---|---|---|---|---|---|
 | Canberra Raiders  | New Zealand Warriors  | Canberra Raiders | **Canberra Raiders**    | **Canberra Raiders** | New Zealand Warriors |
@@ -534,22 +540,32 @@ Note: **Bold** entries denote correct predictions.
 | North QLD Cowboys | Canterbury Bulldogs   | North QLD Cowboys|  Canterbury Bulldogs | Canterbury Bulldogs | **North QLD Cowboys** |
 | **Total Correct** |                       |                 | **6**               | **5**               | **3**             |
 
+</div>
+
 From the results, we can see that the AI outperformed the seasoned tipper and my wife's guesses. 6 out of 7 is a result I didn't anticipate. 
 
 As for the betting outcomes, I placed a $1 bet on each game, and the results are as follows:
 
-1. Canberra Raiders vs New Zealand Warriors: +1.73
-2. South Sydney Rabbitohs vs Wests Tigers: +1.31
-3. Newcastle Knights vs Brisbane Broncos: +1.60
-4. Melbourne Storm vs Sydney Roosters: +2.15
-5. Penrith Panthers vs Dolphins: +1.21
-6. Manly Sea Eagles vs Gold Coast Titans: +1.45
-7. North QLD Cowboys vs Canterbury Bulldogs: -1.00
 
-| Total amount bet  | Total amount won  | Total amount lost | Total profit  | % Return |
-|------------------|------------------|------------------|------------------|----------|
-| -$7.00           | $9.45            | -$1.00           | **$1.45**        | 20.71%   |
+<div class="table-container" markdown="block">
 
+| Game                      | Odds  |
+|---------------------------|-------|
+| Canberra Raiders vs New Zealand Warriors | +1.73 |
+| South Sydney Rabbitohs vs Wests Tigers | +1.31 |
+| Newcastle Knights vs Brisbane Broncos | +1.60 |
+| Melbourne Storm vs Sydney Roosters | +2.15 |
+| Penrith Panthers vs Dolphins | +1.21 |
+| Manly Sea Eagles vs Gold Coast Titans | +1.45 |
+| North QLD Cowboys vs Canterbury Bulldogs | -1.00 |
+| &nbsp; | &nbsp; |
+| **Total amount bet** | -$7.00 |
+| **Total amount lost** | $-1.00 |
+| **Total amount won** | $9.45 |
+| **Total profit** | **$1.45** |
+| **% Return** | **20.71%** |
+
+</div>
 
 There were some interesting results, 2 of the games predicted correctly went against the bookies odds. This is a good sign, as it shows that the AI is not just predicting the favourite to win.
 
@@ -561,3 +577,5 @@ A few important things to note, this is only a very small test, and was performe
 
 One week is not enough to retire yet to our AI overloads, but I will say through either good luck or good prompting, for once the AI has impressed me a little. I will continue to run and update this page with the results throughout the season.
 
+PS. Here's a screenshot of the betting account if you'd like to see <a href="https://github.com/user-attachments/assets/aa3345d6-bcb9-40d0-a6e8-1badbb9ed65f" target="_blank">
+proof</a> this was not run after the fact :)
