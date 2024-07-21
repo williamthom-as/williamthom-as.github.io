@@ -171,6 +171,8 @@ cure.process(:path, "input/nrl_source_transformed.csv")
 
 ```
 
+<a id="step-3"></a>
+
 #### Step 3: Ask the AI to generate SQL queries
 
 I will save you all the boring back and forth, but the initial prompt given to CoPilot was:
