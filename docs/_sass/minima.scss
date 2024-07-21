@@ -92,8 +92,9 @@ h3 > .post-link {
 
 .post-title {
   font-size: 1.75rem;
-  line-height: 1.25;
+  line-height: 1.5;
   color: $link-color;
+  margin-bottom: 2rem;
 }
 
 .post-header {
@@ -104,6 +105,7 @@ h3 > .post-link {
   h2, h3 {
     margin-top: 2rem;
     color: $header-color;
+    font-size: 1.5rem;
   }
 
   a, a:visited {
