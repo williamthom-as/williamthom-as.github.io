@@ -158,8 +158,6 @@ will translate to
 | 654321    | Ref-654321-1 |
 | 654321    | Ref-654321-2 |
 
-
-
 ```ruby
 transform do
   # A rather simple one, if the column "item" matches our typo - oarnge,

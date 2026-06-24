@@ -1,0 +1,163 @@
+
+$cs-bg:        #1e2227;
+$cs-bg-header: #171a1f;
+$cs-border:    #2c313a;
+$cs-fg:        #d7dae0;
+$cs-muted:     #7f8696;
+$cs-radius:    8px;
+
+div.highlighter-rouge,
+figure.highlight {
+  margin: 1.5rem 0;
+  border: 1px solid $cs-border;
+  border-radius: $cs-radius;
+  background-color: $cs-bg;
+  overflow: hidden;
+}
+
+.cs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.75rem;
+  background-color: $cs-bg-header;
+  border-bottom: 1px solid $cs-border;
+  font-family: $code-font-family;
+  font-size: 0.72rem;
+}
+
+.cs-lang {
+  color: $cs-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cs-name {
+  color: $cs-fg;
+}
+
+.cs-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.cs-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid $cs-border;
+  border-radius: 5px;
+  background: transparent;
+  color: $cs-muted;
+  font: inherit;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+
+  &:hover {
+    color: $cs-fg;
+    border-color: $cs-muted;
+  }
+
+  &.is-active {
+    color: $cs-fg;
+    border-color: $cs-muted;
+  }
+
+  &.is-copied {
+    color: $brand-color;
+    border-color: $brand-color;
+  }
+}
+
+
+.highlight {
+  background-color: $cs-bg;
+
+  pre {
+    display: flex;
+    position: relative; // anchor for line-highlight bands
+    margin: 0;
+    padding: 0.9rem 1rem;
+    background-color: $cs-bg;
+    color: $cs-fg;
+    border: none;
+
+    > code {
+      position: relative;
+      z-index: 1; // keep code above the highlight bands
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-x: auto;
+      background: transparent;
+      color: inherit;
+    }
+  }
+}
+
+.highlighter-rouge .highlight {
+  margin: 0;
+  background-color: $cs-bg;
+}
+
+.cs-gutter {
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 1; // keep numbers above the highlight bands
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid $cs-border;
+  color: $cs-muted;
+  text-align: right;
+  white-space: pre;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.cs-hl-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  background-color: rgba(97, 175, 239, 0.13);
+  box-shadow: inset 2px 0 0 #61afef;
+  pointer-events: none;
+}
+
+pre.cs-wrapped > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+pre.cs-wrapped .cs-hl-line {
+  display: none;
+}
+
+.highlight {
+  .c, .c1, .cm, .cd, .cs { color: $cs-muted; font-style: italic; }
+  .cp { color: $cs-muted; }
+  .err { color: #e06c75; background-color: transparent; }
+
+  .k, .kc, .kd, .kn, .kp, .kr, .kv { color: #c678dd; }
+  .kt { color: #e5c07b; }
+
+  .o, .ow { color: #56b6c2; }
+  .p, .pi { color: #abb2bf; }
+
+  .s, .s1, .s2, .sb, .sc, .sd, .se, .sh, .si, .sx, .dl, .sr { color: #98c379; }
+  .ss { color: #56b6c2; }
+
+  .m, .mi, .mf, .mh, .mo, .mb, .il { color: #d19a66; }
+
+  .nb, .bp { color: #56b6c2; }
+  .nf, .fm { color: #61afef; }
+  .nc, .no, .nn { color: #e5c07b; }
+  .na { color: #d19a66; }
+  .nt { color: #e06c75; }
+  .nv, .vc, .vg, .vi { color: #e06c75; }
+  .nl, .nd { color: #61afef; }
+
+  .gd { color: #e06c75; background-color: rgba(224, 108, 117, 0.12); }
+  .gi { color: #98c379; background-color: rgba(152, 195, 121, 0.12); }
+  .gh { color: #61afef; font-weight: bold; }
+  .gu { color: #c678dd; }
+}

@@ -1,0 +1,237 @@
+.articles-header {
+  margin-bottom: 1.5rem;
+}
+
+.articles-summary {
+  margin: 0;
+  color: $grey-color;
+  font-size: $small-font-size;
+  text-align: left;
+}
+
+.articles-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.articles-list {
+  min-width: 0;
+}
+
+.article-card {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid $grey-color-light;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.article-card__link {
+  text-decoration: none;
+
+  &:hover .article-card__title {
+    color: $brand-color;
+  }
+}
+
+.article-card__title {
+  margin: 0 0 0.4rem;
+  font-family: $header-font-family;
+  font-size: 1.3rem;
+  font-weight: $light-font-weight;
+  line-height: 1.35;
+  color: $link-color;
+  transition: color 150ms ease;
+}
+
+.article-card__meta {
+  margin-bottom: 0.6rem;
+  color: $grey-color;
+  font-size: $small-font-size;
+}
+
+.article-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-chip {
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-family: $header-font-family;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $brand-color;
+  background-color: rgba(42, 157, 143, 0.1);
+}
+
+.article-card__excerpt {
+  margin: 0.5rem 0 0;
+  color: $text-color;
+  text-align: left;
+}
+
+.articles-empty {
+  padding: 2rem 0;
+  color: $grey-color;
+  text-align: center;
+}
+
+.articles-sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.sidebar-block + .sidebar-block {
+  margin-top: 2rem;
+}
+
+.sidebar-block__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.sidebar-block__title {
+  margin: 0 0 0.8rem;
+  font-family: $header-font-family;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $grey-color-dark;
+}
+
+.filter-clear {
+  padding: 0;
+  border: none;
+  background: none;
+  color: $brand-color;
+  font: inherit;
+  font-size: $small-font-size;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Tag cloud
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 0.6rem;
+  line-height: 1.1;
+}
+
+.tag-cloud__item {
+  appearance: none;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: $base-font-family;
+  line-height: 1;
+  color: $link-color;
+  cursor: pointer;
+  transition: color 150ms ease, transform 150ms ease;
+
+  &:hover {
+    color: $brand-color;
+    transform: translateY(-1px);
+  }
+
+  &.is-active {
+    color: $brand-color;
+    font-weight: 600;
+  }
+}
+
+.tag-cloud__count {
+  margin-left: 0.15em;
+  font-size: 0.6em;
+  vertical-align: super;
+  color: $grey-color;
+}
+
+// Month filter
+
+.month-filter {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.month-filter__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  font: inherit;
+  text-align: left;
+  color: $link-color;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease;
+
+  &:hover {
+    background-color: rgba(42, 157, 143, 0.08);
+  }
+
+  &.is-active {
+    background-color: $brand-color;
+    color: #fff;
+  }
+}
+
+.month-filter__count {
+  font-size: $small-font-size;
+  color: $grey-color;
+
+  .month-filter__item.is-active & {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .articles-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .articles-sidebar {
+    position: static;
+    order: -1;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $grey-color-light;
+  }
+
+  .sidebar-block + .sidebar-block {
+    margin-top: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .article-card__title,
+  .tag-cloud__item,
+  .month-filter__item {
+    transition: none;
+  }
+}

@@ -1,7 +1,5 @@
 @charset "utf-8";
 
-// Define defaults for each variable.
-
 $base-font-family:  "Inter", sans-serif !default;
 $header-font-family: "JetBrains Mono", monospace;
 
@@ -143,19 +141,16 @@ a, a:visited {
 }
 
 pre, code {
-  background-color: $code-bg-color;
   font-family: $code-font-family;
   font-size: $code-font-size;
   font-weight: $code-font-weight;
   line-height: $code-line-height;
 }
 
-.highlighter-rouge .highlight {
-    background-color: $code-bg-color;
-}
-
-.highlight .o, .highlight .k {
-  font-weight: $code-bold-weight !important;
+:not(pre) > code {
+  padding: 0.15em 0.35em;
+  background-color: $code-bg-color;
+  border-radius: 4px;
 }
 
 .site-title, .site-title:visited {
@@ -168,13 +163,38 @@ pre, code {
 }
 
 .site-nav .page-link {
-  transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
   font-weight: 400;
+  transition: color 150ms ease;
+
+  // Underline wipes in from the left on hover, out to the right on leave.
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: $brand-color;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 220ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
 
   &:hover {
+    color: $brand-color;
     text-decoration: none;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid $brand-color;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav .page-link::after {
+    transition: none;
   }
 }
 
@@ -196,3 +216,6 @@ pre, code {
   overflow-x: auto;
   margin-bottom: 1rem;
 }
+
+@import "code-snippets";
+@import "articles";

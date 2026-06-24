@@ -22,7 +22,7 @@ title: William Thomas
 email: me [at] williamthom.as
 author: If you would like to get in touch
 description: >- # this means to ignore newlines until "baseurl:"
-  2021-2024
+  2021-2026
 domain: williamthom.as       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
 url: https://williamthom.as  # the base hostname and protocol for your site, e.g. http://example.com
 github_username:  williamthom-as
@@ -32,6 +32,12 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+# Controls nav order; only these pages appear in the header.
+header_pages:
+  - index.markdown
+  - articles.html
+  - projects.markdown
 
 breadcrumbs: true
 search: true
