@@ -25,7 +25,8 @@ and have the ability to log and analyse that traffic later, or just save it for 
 ...well, there is probably an existing tool that can do this but I chose to write my own drop-in
 proxy to do exactly this.
 
-`pg_siphon` is a simple TCP (man-in-the-middle) proxy that sits between your application and  
+[`pg_siphon`](https://github.com/williamthom-as/pg_siphon_management) is a simple TCP 
+(man-in-the-middle) proxy that sits between your application and  
 Postgres database, both forwarding every byte untouched, and observing the frontend/backend wire 
 protocol to surface/record all activity. There are no install scripts, just boot the proxy, change 
 your application  configuration to point at the proxy, and sit back and watch the queries fly past.
@@ -86,8 +87,6 @@ guard clauses, recursion and byte matching. This makes parsing the Postgres wire
 it can be in any language.
 
 Lets look at a trivial example of how messages are sent over the wire.
-
-
 
 ```bash
 # sending "SELECT * FROM names;"
@@ -203,7 +202,7 @@ config :pg_siphon, :proxy_server,
 
 ### Tour/Capabilities
 
-`pg_siphon` is made up of two parts, the proxy server and the management ui, for the most part
+[`pg_siphon`](https://github.com/williamthom-as/pg_siphon_management) is made up of two parts, the proxy server and the management ui, for the most part
 this article is focused on the management ui, but you can actually run it headless if you wanted
 to, it has all the capabilities of recording, analysing and viewing traffic without the ui overhead.
 
@@ -276,7 +275,11 @@ which will be sent as a simple query, so monitor for `Q` messages in the active 
 
 ### Conclusions
 
-`pg_siphon` is pretty conceptually simple, but has actually saved me a lot of time in both 
-troubleshooting and performance analysis in a way other tools have not been able to. I hope you 
+[`pg_siphon`](https://github.com/williamthom-as/pg_siphon_management) is pretty conceptually simple, but has actually 
+saved me a lot of time in both troubleshooting and performance analysis in a way other tools have not been able to. I hope you 
 find it useful too, in solving some obscure problem, and if you have any feedback, please feel free 
 to raise them at [GitHub repo](http://github.com/williamthom-as/pg_siphon_management/issues).
+
+Visit:
+- [`pg_siphon_management` Github](https://github.com/williamthom-as/pg_siphon_management) 
+- [`pg_siphon (proxy)` Github](https://github.com/williamthom-as/pg_siphon) 
