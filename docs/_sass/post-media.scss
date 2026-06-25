@@ -1,0 +1,71 @@
+// Post screenshots/diagrams: framed, elevated figures with captions, and a
+// click-to-zoom lightbox. Behaviour lives in assets/js/post-images.js.
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.post-content img.is-zoomable {
+  cursor: zoom-in;
+}
+
+.post-figure {
+  margin: 2rem auto;
+  text-align: center;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid $grey-color-light;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px -12px rgba(38, 70, 83, 0.35);
+  }
+
+  figcaption {
+    margin-top: 0.7rem;
+    color: $grey-color;
+    font-size: $small-font-size;
+  }
+}
+
+// --- Lightbox -------------------------------------------------------------
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: rgba(20, 26, 31, 0.85);
+  opacity: 0;
+  cursor: zoom-out;
+  transition: opacity 180ms ease;
+
+  &.is-open {
+    opacity: 1;
+  }
+}
+
+.lightbox[hidden] {
+  display: none; // overrides the flex display above when closed
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    transition: none;
+  }
+}

@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 $base-font-family:  "Inter", sans-serif !default;
-$header-font-family: "JetBrains Mono", monospace;
+$header-font-family: "Fraunces", serif;
 
 $base-font-size:    1rem !default;
 $small-font-size:   0.9rem !default;
@@ -29,7 +29,7 @@ $grey-color-dark:   darken($grey-color, 25%) !default;
 $table-text-align:  left !default;
 
 $code-bg-color:     #f6f8fa;
-$code-font-family:  "JetBrains Mono", monospace !default;
+$code-font-family:  "IBM Plex Mono", monospace !default;
 $code-font-size:    0.9em;
 $code-font-weight:  300;
 $code-bold-weight:  $code-font-weight * 2;
@@ -203,6 +203,44 @@ pre, code {
   background-color: #f2f2f2;
 }
 
+// Three aligned footer sections: left | center | right.
+.footer-col-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-left: 0;
+}
+
+.footer-col {
+  flex: 1 1 0;
+  float: none;
+  width: auto;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.footer-col-1 { text-align: left; }
+.footer-col-2 { text-align: center; }
+.footer-col-3 { text-align: right; }
+
+@media screen and (max-width: 600px) {
+  .footer-col-wrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .footer-col {
+    flex: none;
+    text-align: center;
+  }
+}
+
 .post-list-heading {
   font-size: 1.5rem;
   color: $text-color !important;
@@ -219,3 +257,4 @@ pre, code {
 
 @import "code-snippets";
 @import "articles";
+@import "post-media";
