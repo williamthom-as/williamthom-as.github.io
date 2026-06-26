@@ -1,0 +1,51 @@
+// Render host for ```mermaid diagrams (see assets/js/mermaid.js).
+// Colours reuse the code-snippet palette ($cs-*) so diagrams sit on the same
+// dark surface as code blocks. code-snippets.scss is imported first, so those
+// variables are in scope here.
+
+.mermaid-diagram {
+  // Slightly narrower than the column and centred, so the diagram reads a
+  // touch smaller (the SVG fills this box, so a smaller box = smaller graph).
+  max-width: 90%;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  overflow-x: auto;
+  text-align: center;
+  background-color: $cs-bg;
+  border: 1px solid $cs-border;
+  border-radius: $cs-radius;
+  // Match the subtle drop shadow used on post images (_sass/post-media.scss).
+  box-shadow: 0 12px 30px -12px rgba(38, 70, 83, 0.35);
+
+  .mermaid {
+    width: 100%;
+  }
+
+  // Hide the raw source until Mermaid has swapped in the SVG, to avoid a
+  // flash of unrendered diagram text.
+  .mermaid:not([data-processed="true"]) {
+    visibility: hidden;
+  }
+
+  // The SVG scales to fill this (now slightly smaller) box; viewBox keeps the
+  // aspect ratio.
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+// If rendering fails (e.g. CDN blocked or invalid syntax), fall back to the
+// readable source instead of an empty, hidden box.
+.mermaid-error {
+  text-align: left;
+
+  .mermaid {
+    visibility: visible;
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: $code-font-family;
+    font-size: $code-font-size;
+    color: $cs-fg;
+  }
+}
