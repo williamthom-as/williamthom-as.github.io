@@ -90,6 +90,26 @@ figure.highlight {
       overflow-x: auto;
       background: transparent;
       color: inherit;
+
+      scrollbar-width: thin;                     // Firefox
+      scrollbar-color: $cs-border transparent;   // Firefox: thumb / track
+
+      &::-webkit-scrollbar {                      // Chrome / Safari / Edge
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $cs-border;
+        border-radius: 4px;
+      }
+
+      &:hover::-webkit-scrollbar-thumb {
+        background-color: $cs-muted;
+      }
     }
   }
 }

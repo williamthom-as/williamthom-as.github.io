@@ -198,6 +198,9 @@
     if (container.classList.contains("cs-ready")) {
       return;
     }
+    if (container.classList.contains("language-mermaid")) {
+      return; // mermaid diagrams are rendered by mermaid.js, not enhanced
+    }
     var pre = container.querySelector("pre");
     var code = pre && pre.querySelector("code");
     if (!pre || !code) {
